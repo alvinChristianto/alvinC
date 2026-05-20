@@ -3,6 +3,7 @@ import HomeSection from "./Components/Home";
 import AboutMe from "./Components/AboutMe";
 import Portfolio from "./Components/Portfolio";
 import IndividualProject from "./Components/IndividualProject";
+import Blog from "./Components/Blog";
 import Script from "next/script";
 
 export default function Home() {
@@ -43,6 +44,7 @@ export default function Home() {
         <AboutMe />
         <IndividualProject />
         <Portfolio />
+        <Blog />
       </div>
     </>
   );

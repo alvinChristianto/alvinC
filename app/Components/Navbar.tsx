@@ -10,6 +10,7 @@ function Navbar(props: any) {
     { name: "About", link: "/#about" },
     { name: "Ongoing Project", link: "/#individual-project" },
     { name: "Project Sebelumnya", link: "/#portfolio" },
+    { name: "Blog", link: "/#blog" },
   ];
   let [open, setOpen] = useState(false);
 
