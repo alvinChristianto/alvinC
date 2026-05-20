@@ -1,4 +1,4 @@
-// import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar";
 import HomeSection from "./Components/Home";
 import AboutMe from "./Components/AboutMe";
 import Portfolio from "./Components/Portfolio";
@@ -37,11 +37,13 @@ export default function Home() {
           gtag('config', 'G-2M3V0ZN4MB');
         `}
       </Script>
-      {/* <Navbar /> */}
-      <HomeSection />
-      <AboutMe />
-      <IndividualProject />
-      <Portfolio />
+      <Navbar />
+      <div className="pt-16">
+        <HomeSection />
+        <AboutMe />
+        <IndividualProject />
+        <Portfolio />
+      </div>
     </>
   );
 }

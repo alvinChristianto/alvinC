@@ -1,16 +1,21 @@
 "use client";
 import React, {useState} from "react";
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 function Navbar(props: any) {
   let Links = [
     { name: "HOME", link: "/#home" },
     { name: "About", link: "/#about" },
+    { name: "Ongoing Project", link: "/#individual-project" },
+    { name: "Project Sebelumnya", link: "/#portfolio" },
   ];
   let [open, setOpen] = useState(false);
 
   return (
     <>
-      <div className="shadow-md w-full fixed top-0 left-0">
+      <div className={`${spaceGrotesk.className} shadow-md w-full fixed top-0 left-0 z-50`}>
         <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
           <div
             className="font-bold text-2xl cursor-pointer flex items-center 
@@ -40,7 +45,7 @@ function Navbar(props: any) {
               <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7">
                 <a
                   href={link.link}
-                  className="text-gray-800 hover:text-gray-400 duration-500"
+                  className="text-gray-800 hover:text-primary duration-300 font-medium tracking-wide text-sm"
                 >
                   {link.name}
                 </a>
