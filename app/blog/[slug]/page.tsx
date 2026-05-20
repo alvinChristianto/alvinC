@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -15,6 +16,43 @@ function getArticle(slug: string) {
   const raw = fs.readFileSync(filepath, "utf-8");
   const { data, content } = matter(raw);
   return { data, content };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const article = getArticle(slug);
+  if (!article) return {};
+
+  const { data } = article;
+  const title = data.title ?? '';
+  const description = data.description ?? '';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://alvinch.vercel.app/blog/${slug}`,
+      type: 'article',
+      publishedTime: data.date,
+      tags: data.tags ?? [],
+      images: [
+        {
+          url: '/img/image_alvin.png',
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/img/image_alvin.png'],
+    },
+  };
 }
 
 export function generateStaticParams() {
