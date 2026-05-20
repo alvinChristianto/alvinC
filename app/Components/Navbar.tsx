@@ -1,6 +1,5 @@
 "use client";
 import React, {useState} from "react";
-import { Menu, Close, LogoIonic } from "react-ionicons";
 
 function Navbar(props: any) {
   let Links = [
@@ -26,19 +25,9 @@ function Navbar(props: any) {
           >
             {/* <ion-icon name={open ? "close" : "menu-outline"}></ion-icon> */}
             {open ? (
-              <Close
-                color={"#000000"}
-                title={"menu-close"}
-                height="35px"
-                width="35px"
-              />
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="menu-close"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             ) : (
-              <Menu
-                color={"#000000"}
-                title={"menu-open"}
-                height="35px"
-                width="35px"
-              />
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="menu-open"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             )}
           </div>
 
